@@ -26,5 +26,5 @@ phases:
       - ./gradlew build
 artifacts:
   files:
-    - build/libs/inquiryspringboot-0.0.1-SNAPSHOT.jar
+    - build/libs/inquiryAPI-0.0.1-SNAPSHOT.jar
   discard-paths: yes

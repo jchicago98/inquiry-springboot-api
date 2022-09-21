@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("developers")
+@RequestMapping("inquiry-users")
 public class InquiryController {
 
     private InquiryService developerService;
