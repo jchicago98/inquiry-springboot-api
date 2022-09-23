@@ -1,5 +1,6 @@
 package com.inquiryspringboot.inquiryAPI.controllers;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import com.inquiryspringboot.inquiryAPI.entities.Inquiry;
 import com.inquiryspringboot.inquiryAPI.services.InquiryService;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("inquiry-users")
 public class InquiryController {
 
