@@ -9,37 +9,37 @@ import java.util.stream.Collectors;
 
 @Service
 public class InquiryService {
-    private InquiryRepository developerRepository;
+    private InquiryRepository inquiryRepository;
 
-    public InquiryService(InquiryRepository developerRepository){
-        this.developerRepository = developerRepository;
+    public InquiryService(InquiryRepository inquiryRepository){
+        this.inquiryRepository = inquiryRepository;
     }
 
 
-    public List<Inquiry> getAllDevelopers() {
-        return this.developerRepository.findAll();
+    public List<Inquiry> getAllUsers() {
+        return this.inquiryRepository.findAll();
     }
 
-    public  List<Inquiry> getAllActiveDevelopers(){
-        return this.developerRepository.findAll()
+    public  List<Inquiry> getAllActiveUsers(){
+        return this.inquiryRepository.findAll()
                 .stream()
                 .filter(d->d.isActive()).collect(Collectors.toList());
     }
 
-    public Inquiry findDeveloperById(Integer id) {
-        return this.developerRepository.findById(id).orElse(null);
+    public Inquiry findUserById(Integer id) {
+        return this.inquiryRepository.findById(id).orElse(null);
     }
 
-    public Inquiry saveDeveloper(Inquiry developer){
-        return this.developerRepository.save(developer);
+    public Inquiry saveUser(Inquiry user){
+        return this.inquiryRepository.save(user);
     }
 
-    public Inquiry updateDeveloper(Inquiry developer) {
-        return this.developerRepository.save(developer);
+    public Inquiry updateUser(Inquiry user) {
+        return this.inquiryRepository.save(user);
     }
 
-    public void deleteDeveloper(Inquiry developer) {
-        developer.setActive(false);
-        this.developerRepository.save(developer);
+    public void deleteUser(Inquiry user) {
+        user.setActive(false);
+        this.inquiryRepository.save(user);
     }
 }

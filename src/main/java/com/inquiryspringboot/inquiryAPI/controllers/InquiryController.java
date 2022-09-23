@@ -12,70 +12,70 @@ import java.util.List;
 @RequestMapping("inquiry-users")
 public class InquiryController {
 
-    private InquiryService developerService;
+    private InquiryService inquiryService;
 
-    public InquiryController(InquiryService developerService){
-        this.developerService = developerService;
+    public InquiryController(InquiryService inquiryService){
+        this.inquiryService = inquiryService;
     }
 
     @GetMapping("all")
-    public List<Inquiry> getAllActiveDevelopers(){
-        return this.developerService.getAllActiveDevelopers();
+    public List<Inquiry> getAllActiveUsers(){
+        return this.inquiryService.getAllActiveUsers();
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Inquiry> getDeveloperById(@PathVariable Integer id){
-        Inquiry developer = this.developerService.findDeveloperById(id);
+    public ResponseEntity<Inquiry> getUserById(@PathVariable Integer id){
+        Inquiry user = this.inquiryService.findUserById(id);
         HttpStatus status;
         ResponseEntity response;
 
-        if(developer != null){
+        if(user != null){
             status = HttpStatus.OK;
-            response = new ResponseEntity(developer,status);
+            response = new ResponseEntity(user,status);
         }else{
             status  = HttpStatus.BAD_REQUEST;
-            response = new ResponseEntity("Developer not found",status);
+            response = new ResponseEntity("User not found",status);
         }
 
         return response;
     }
 
     @PostMapping("save")
-    public Inquiry postDeveloper(@RequestBody Inquiry developer){
-        return this.developerService.saveDeveloper(developer);
+    public Inquiry postUser(@RequestBody Inquiry user){
+        return this.inquiryService.saveUser(user);
     }
 
     @PutMapping("update")
-    public ResponseEntity<Inquiry> putDeveloper(@RequestBody Inquiry developer){
-        Inquiry foundDeveloper = this.developerService.findDeveloperById(developer.getId());
+    public ResponseEntity<Inquiry> putUser(@RequestBody Inquiry user){
+        Inquiry foundUser = this.inquiryService.findUserById(user.getId());
         HttpStatus status;
         ResponseEntity response;
 
-        if(foundDeveloper != null){
+        if(foundUser != null){
             status = HttpStatus.OK;
-            this.developerService.updateDeveloper(developer);
-            response = new ResponseEntity(developer,status);
+            this.inquiryService.updateUser(user);
+            response = new ResponseEntity(user,status);
         }else{
             status  = HttpStatus.BAD_REQUEST;
-            response = new ResponseEntity("Developer not found",status);
+            response = new ResponseEntity("User not found",status);
         }
 
         return response;
     }
 
     @DeleteMapping("delete")
-    public ResponseEntity<String> deleteDeveloper(@RequestBody Inquiry developer){
-        Inquiry foundDeveloper = this.developerService.findDeveloperById(developer.getId());
+    public ResponseEntity<String> deleteUser(@RequestBody Inquiry user){
+        Inquiry foundUser = this.inquiryService.findUserById(user.getId());
         HttpStatus status;
         ResponseEntity response;
 
-        if(foundDeveloper != null){
-            this.developerService.deleteDeveloper(developer);
+        if(foundUser != null){
+            this.inquiryService.deleteUser(user);
             status = HttpStatus.OK;
-            response = new ResponseEntity("Developer successfully deleted",status);
+            response = new ResponseEntity("User successfully deleted",status);
         }else{
             status  = HttpStatus.BAD_REQUEST;
-            response = new ResponseEntity("Developer not found",status);
+            response = new ResponseEntity("User not found",status);
         }
 
         return response;
