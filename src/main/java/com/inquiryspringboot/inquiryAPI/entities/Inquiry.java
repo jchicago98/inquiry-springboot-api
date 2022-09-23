@@ -3,6 +3,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Inquiry {
@@ -12,26 +13,30 @@ public class Inquiry {
     Integer id;
     String firstName;
     String lastName;
-    String favoriteLanguage;
-    int yearStarted;
+    Date yearBorn;
+    String email;
+    String password;
+
     boolean isActive = true;
 
     public Inquiry(){}
 
-    public Inquiry(Integer id, String firstName, String lastName, String favoriteLanguage, int yearStarted) {
+    public Inquiry(Integer id, String firstName, String lastName, Date yearBorn, String email, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.favoriteLanguage = favoriteLanguage;
-        this.yearStarted = yearStarted;
+        this.yearBorn = yearBorn;
+        this.email = email;
+        this.password = password;
     }
 
-    public Inquiry(Integer id, String firstName, String lastName, String favoriteLanguage, int yearStarted, boolean isActive) {
+    public Inquiry(Integer id, String firstName, String lastName, Date yearBorn, String email, String password, boolean isActive) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.favoriteLanguage = favoriteLanguage;
-        this.yearStarted = yearStarted;
+        this.yearBorn = yearBorn;
+        this.email = email;
+        this.password = password;
         this.isActive = isActive;
     }
 
@@ -59,21 +64,25 @@ public class Inquiry {
         this.lastName = lastName;
     }
 
-    public String getFavoriteLanguage() {
-        return favoriteLanguage;
+    public Date getYearBorn() {
+        return yearBorn;
     }
 
-    public void setFavoriteLanguage(String favoriteLanguage) {
-        this.favoriteLanguage = favoriteLanguage;
+    public void setYearBorn(Date yearBorn) {
+        this.yearBorn = yearBorn;
     }
 
-    public int getYearStarted() {
-        return yearStarted;
+    public String getEmail() {
+        return email;
     }
 
-    public void setYearStarted(int yearStarted) {
-        this.yearStarted = yearStarted;
+    public void setEmail(String email) {
+        this.email = email;
     }
+
+    public String getPassword() { return password;}
+
+    public void setPassword(String password) {this.password = password;}
 
     public boolean isActive() {
         return isActive;
