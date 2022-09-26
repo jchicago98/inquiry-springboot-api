@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Inquiry {
+public class InquiryUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,28 +15,25 @@ public class Inquiry {
     String lastName;
     Date yearBorn;
     String email;
-    String password;
 
     boolean isActive = true;
 
-    public Inquiry(){}
+    public InquiryUser(){}
 
-    public Inquiry(Integer id, String firstName, String lastName, Date yearBorn, String email, String password) {
+    public InquiryUser(Integer id, String firstName, String lastName, Date yearBorn, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.yearBorn = yearBorn;
         this.email = email;
-        this.password = password;
     }
 
-    public Inquiry(Integer id, String firstName, String lastName, Date yearBorn, String email, String password, boolean isActive) {
+    public InquiryUser(Integer id, String firstName, String lastName, Date yearBorn, String email, boolean isActive) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.yearBorn = yearBorn;
         this.email = email;
-        this.password = password;
         this.isActive = isActive;
     }
 
@@ -79,10 +76,6 @@ public class Inquiry {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getPassword() { return password;}
-
-    public void setPassword(String password) {this.password = password;}
 
     public boolean isActive() {
         return isActive;

@@ -1,6 +1,6 @@
 package com.inquiryspringboot.inquiryAPI.services;
 
-import com.inquiryspringboot.inquiryAPI.entities.Inquiry;
+
 import com.inquiryspringboot.inquiryAPI.entities.Messages;
 import com.inquiryspringboot.inquiryAPI.repositories.InquiryMessageRepository;
 import com.inquiryspringboot.inquiryAPI.repositories.InquiryRepository;

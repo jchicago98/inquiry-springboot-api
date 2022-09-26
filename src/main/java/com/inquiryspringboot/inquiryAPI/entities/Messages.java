@@ -12,6 +12,8 @@ public class Messages {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer message_id;
     Integer user_id;
+    String senderEmail;
+    String receiverEmail;
     String fromLastName;
     String fromFirstName;
     String toLastName;
