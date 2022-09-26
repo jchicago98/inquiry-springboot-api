@@ -30,9 +30,7 @@ public class InquiryService {
         return this.inquiryRepository.findById(id).orElse(null);
     }
 
-    public Inquiry saveUser(Inquiry user){
-        return this.inquiryRepository.save(user);
-    }
+    public Inquiry saveUser(Inquiry user){ return this.inquiryRepository.save(user);}
 
     public Inquiry updateUser(Inquiry user) {
         return this.inquiryRepository.save(user);
