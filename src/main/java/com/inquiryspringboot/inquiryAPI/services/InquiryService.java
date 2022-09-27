@@ -1,6 +1,6 @@
 package com.inquiryspringboot.inquiryAPI.services;
 
-import com.inquiryspringboot.inquiryAPI.entities.Inquiry;
+import com.inquiryspringboot.inquiryAPI.entities.InquiryUser;
 import com.inquiryspringboot.inquiryAPI.repositories.InquiryRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,27 +16,27 @@ public class InquiryService {
     }
 
 
-    public List<Inquiry> getAllUsers() {
+    public List<InquiryUser> getAllUsers() {
         return this.inquiryRepository.findAll();
     }
 
-    public  List<Inquiry> getAllActiveUsers(){
+    public  List<InquiryUser> getAllActiveUsers(){
         return this.inquiryRepository.findAll()
                 .stream()
                 .filter(d->d.isActive()).collect(Collectors.toList());
     }
 
-    public Inquiry findUserById(Integer id) {
+    public InquiryUser findUserById(Integer id) {
         return this.inquiryRepository.findById(id).orElse(null);
     }
 
-    public Inquiry saveUser(Inquiry user){ return this.inquiryRepository.save(user);}
+    public InquiryUser saveUser(InquiryUser user){ return this.inquiryRepository.save(user);}
 
-    public Inquiry updateUser(Inquiry user) {
+    public InquiryUser updateUser(InquiryUser user) {
         return this.inquiryRepository.save(user);
     }
 
-    public void deleteUser(Inquiry user) {
+    public void deleteUser(InquiryUser user) {
         user.setActive(false);
         this.inquiryRepository.save(user);
     }
