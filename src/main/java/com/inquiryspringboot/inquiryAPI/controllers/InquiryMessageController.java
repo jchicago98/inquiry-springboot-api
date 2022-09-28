@@ -28,7 +28,9 @@ public class InquiryMessageController {
     @GetMapping("{id}")
     public List<Message> getMessagesByInquiryUserId(@PathVariable Integer id) {
         List<Message> messages = this.inquiryMessageService.getAllMessages()
-                .stream().filter(message -> message.getReceiver().getId() == id || message.getSender().getId() == id).collect(Collectors.toList());
+                .stream()
+                .filter(message -> message.getReceiver().getId() == id || message.getSender().getId() == id)
+                .collect(Collectors.toList());
         HttpStatus status;
         ResponseEntity response;
         return messages;
