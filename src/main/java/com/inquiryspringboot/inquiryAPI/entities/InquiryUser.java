@@ -99,4 +99,10 @@ public class InquiryUser {
         this.yearBorn = yearBorn;
         return this;
     }
+
+    public InquiryUser withId(Integer id){
+        this.id = id;
+        return this;
+    }
+
 }

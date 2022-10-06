@@ -64,4 +64,26 @@ public class Message {
     public void setSentDateTime(Date sentDateTime) {
         this.sentDateTime = sentDateTime;
     }
+
+    public Message withMessageId(Integer message_id){
+        this.message_id = message_id;
+        return this;
+    }
+
+    public Message withSender(InquiryUser sender){
+        this.sender = sender;
+        return this;
+    }
+
+    public Message withReceiver(InquiryUser receiver){
+        this.receiver = receiver;
+        return this;
+    }
+
+    public Message withMessageText(String messageText){
+        this.messageText = messageText;
+        return this;
+    }
+
+
 }
