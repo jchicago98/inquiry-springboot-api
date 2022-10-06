@@ -1,5 +1,6 @@
 package com.inquiryspringboot.inquiryAPI.entities;
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -15,10 +16,12 @@ public class CreatePost {
     Boolean newsCheckBox;
     Boolean careerCheckBox;
     String postText;
+    Double postPrice;
+    Boolean cartActive;
 
     public CreatePost (){}
 
-    public CreatePost(Integer post_id, InquiryUser sender, String subjectLine, Boolean academicsCheckBox, Boolean newsCheckBox, Boolean careerCheckBox, String postText) {
+    public CreatePost(Integer post_id, InquiryUser sender, String subjectLine, Boolean academicsCheckBox, Boolean newsCheckBox, Boolean careerCheckBox, String postText, Double postPrice, Boolean cartActive) {
         this.post_id = post_id;
         this.sender = sender;
         this.subjectLine = subjectLine;
@@ -26,6 +29,8 @@ public class CreatePost {
         this.newsCheckBox = newsCheckBox;
         this.careerCheckBox = careerCheckBox;
         this.postText = postText;
+        this.postPrice = postPrice;
+        this.cartActive = cartActive;
     }
 
     public Integer getPost_id() {
@@ -82,5 +87,51 @@ public class CreatePost {
 
     public void setPostText(String postText) {
         this.postText = postText;
+    }
+
+    public CreatePost withPostId(Integer post_id){
+        this.post_id = post_id;
+        return this;
+    }
+
+    public CreatePost withSubjectLine(String subjectLine){
+        this.subjectLine = subjectLine;
+        return this;
+    }
+
+    public CreatePost withAcademicsCheckBox(Boolean academicsCheckBox){
+        this.academicsCheckBox = academicsCheckBox;
+        return this;
+    }
+
+    public CreatePost withNewsCheckBox(Boolean newsCheckBox){
+        this.newsCheckBox = newsCheckBox;
+        return this;
+    }
+
+    public CreatePost withCareerCheckbox(Boolean careerCheckBox){
+        this.careerCheckBox = careerCheckBox;
+        return this;
+    }
+
+    public CreatePost withPostText(String postText){
+        this.postText = postText;
+        return this;
+    }
+
+    public Double getPostPrice() {
+        return postPrice;
+    }
+
+    public void setPostPrice(Double postPrice) {
+        this.postPrice = postPrice;
+    }
+
+    public Boolean getCartActive() {
+        return cartActive;
+    }
+
+    public void setCartActive(Boolean cartActive) {
+        this.cartActive = cartActive;
     }
 }

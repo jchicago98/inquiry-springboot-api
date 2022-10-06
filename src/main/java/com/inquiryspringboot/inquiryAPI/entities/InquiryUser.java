@@ -84,4 +84,25 @@ public class InquiryUser {
     public void setActive(boolean active) {
         isActive = active;
     }
+
+    public InquiryUser withFirstName(String firstName){
+        this.firstName = firstName;
+        return this;
+    }
+
+    public InquiryUser withLastName(String lastName){
+        this.lastName = lastName;
+        return this;
+    }
+
+    public InquiryUser withYearBorn(Date yearBorn){
+        this.yearBorn = yearBorn;
+        return this;
+    }
+
+    public InquiryUser withId(Integer id){
+        this.id = id;
+        return this;
+    }
+
 }
