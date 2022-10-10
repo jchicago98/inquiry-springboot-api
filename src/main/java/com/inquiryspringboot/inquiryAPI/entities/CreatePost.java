@@ -18,10 +18,11 @@ public class CreatePost {
     String postText;
     Double postPrice;
     Boolean cartActive;
+    Boolean reportPostStatus;
 
     public CreatePost (){}
 
-    public CreatePost(Integer post_id, InquiryUser sender, String subjectLine, Boolean academicsCheckBox, Boolean newsCheckBox, Boolean careerCheckBox, String postText, Double postPrice, Boolean cartActive) {
+    public CreatePost(Integer post_id, InquiryUser sender, String subjectLine, Boolean academicsCheckBox, Boolean newsCheckBox, Boolean careerCheckBox, String postText, Double postPrice, Boolean cartActive, Boolean reportPostStatus) {
         this.post_id = post_id;
         this.sender = sender;
         this.subjectLine = subjectLine;
@@ -31,6 +32,7 @@ public class CreatePost {
         this.postText = postText;
         this.postPrice = postPrice;
         this.cartActive = cartActive;
+        this.reportPostStatus = reportPostStatus;
     }
 
     public Integer getPost_id() {
@@ -133,5 +135,13 @@ public class CreatePost {
 
     public void setCartActive(Boolean cartActive) {
         this.cartActive = cartActive;
+    }
+
+    public Boolean getReportPostStatus() {
+        return reportPostStatus;
+    }
+
+    public void setReportPostStatus(Boolean reportPostStatus) {
+        this.reportPostStatus = reportPostStatus;
     }
 }
